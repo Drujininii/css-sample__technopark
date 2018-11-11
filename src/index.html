@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <!-- <body onload="init();"> -->
+    <body>
+
+            <!-- <script>
+                    function over_handler(event) { 
+                        console.log('over_handler')
+                    }
+                    function enter_handler(event) { 
+                        console.log('enter_handler')
+                    }
+                    function down_handler(event) { 
+                        console.log('down_handler')
+                    }
+                    function move_handler(event) {
+                        console.log('move_handler')
+                        // console.log(event.pointerType)
+                     }
+                    function up_handler(event) {
+                        console.log('up_handler')
+                     }
+                    function cancel_handler(event) {
+                        console.log('cancel_handler')
+                     }
+                    function out_handler(event) { 
+                        console.log('out_handler')
+                    }
+                    function leave_handler(event) {
+                        console.log('leave_handler')
+                    }
+                    function gotcapture_handler(event) {
+                        console.log('gotcapture_handler')
+                     }
+                    function lostcapture_handler(event) {
+                        console.log('lostcapture_handler')
+
+                     }
+                
+                    function init() {
+                      var el=document.getElementById("target");
+                      // Register pointer event handlers
+                      el.onpointerover = over_handler;
+                      el.onpointerenter = enter_handler;
+                      el.onpointerdown = down_handler;
+                      el.onpointermove = move_handler;
+                      el.onpointerup = up_handler;
+                      el.onpointercancel = cancel_handler;
+                      el.onpointerout = out_handler;
+                      el.onpointerleave = leave_handler;
+                      el.gotpointercapture = gotcapture_handler;
+                      el.lostpointercapture = lostcapture_handler;
+                    }
+                  </script> -->
+
+        <div class="grid-body">
+            <div class="scoreboard flex-body">
+                <div>
+                    Score
+                </div>
+            </div>
+
+            <div class="header flex-body">
+                Amazing game
+            </div>
+
+            <div class="player-data flex-body">
+                <div class="player-data__container">
+                        <img src="groot.jpg" class="player-avatar">
+                        <div class="player-name">
+                            Igor
+                        </div>
+                </div>
+            </div>
+           
+           
+            <main class="flex-main">
+
+                <button class="back-to-menu hidden">
+                    Back
+                </button>
+
+
+                <section class="flex-container menu">
+                    <button class="flex-container__button">
+                        Play
+                    </button>
+                    <button class="flex-container__button">
+                        Settings
+                    </button>
+                    <button class="flex-container__button flex-container__button__rules">
+                        Rules
+                    </button>
+                    <button class="flex-container__button">
+                        Exit
+                    </button>
+                </section>
+
+
+
+                <section class="flex-body rules hidden">
+                    <div>
+                        <p>
+                                Король – самая главная фигура в шахматах, цель игры в шахматы это поставить мат королю, после этого игра прекращается. Кто поставит мат тот и выигрывает партию. Король единственная фигура, которая не может взять фигуру, если она защищена, он также не имеет право ходить под шах, к тому же не может приблизиться к вражескому ферзю и королю (ближе, чем на одну клетку).
+                        </p>
+                        <br>
+                        <p>
+                                Ладья - ходит и бьет фигуры противника на лю­бое доступное поле по вертикалям или горизонталям, на которых находится.
+                        </p>
+                    <div>
+                </section>
+
+               
+
+            </main>
+
+            <section class="advert flex-body">
+                    <p>
+                        Vk
+                    </p>
+                    <p>
+                            
+                    </p>
+                    <p>
+                        ,   Github
+                    </p>
+            </section>
+
+        </div>
+
+        <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+
+    </body>
+</html>

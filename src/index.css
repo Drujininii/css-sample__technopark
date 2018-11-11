@@ -1,0 +1,249 @@
+body {
+	font-family: Helvetica;
+	font-size: 20px;
+	color: #005ff9;
+	background-color: #191a1b;
+	margin: 0;
+}
+
+.flex-body {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.flex-main {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+
+.flex-container {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.scoreboard {
+	display: none;
+}
+
+@media (orientation: portrait) {
+	.grid-body {
+		grid-template-rows: 0.5fr 166px 5fr 1fr !important;
+		/* grid-template-columns: 1fr 400px 1fr !important; */
+		grid-template-areas:
+		". . score"
+		". game-name player-data"
+		"menu menu menu"
+		"footer footer footer" !important;
+	}
+
+	.flex-container {
+		width: 400px;
+	}
+	/* .flex-body {
+		align-items: baseline !important;
+	} */
+
+	.flex-container__button {
+		/* width: 70vw !important; */
+		flex: 1 0 180px !important;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+}
+
+@media (orientation: landscape) {
+
+	.flex-main {
+		height: 40vh !important;
+	}
+	.flex-container {
+		height: inherit !important;
+		width: 95vw;
+	}
+
+	.player-data__container {
+		flex-direction: row !important;
+	}
+
+	.grid-body {
+		/* grid-template-rows: 1fr 2fr 0.5fr !important; */
+	}
+}
+
+.flex-container__button {
+	outline: none;
+	border: 5px solid #005ff9;
+	border-radius: 5px;
+	font-family: Helvetica;
+	width: 150px;
+	font-size: 30px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	flex: 0 0 150px;
+	color: white;
+	background-color: #ff9d02;
+	height: 100px;
+	transition: transform 0.5s;
+}
+
+.rules {
+	display: block;
+	margin-top: 10px;
+	height: 400px;
+	overflow: scroll;
+}
+
+
+@media (max-width: 1000px) {
+	.flex-container__button {
+		width: 70vw !important;
+		flex: 1 0 180px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+
+@media (hover: none) {
+	.flex-container__button{
+		/* transform:  perspective(1px) scale(1.5); */
+		/* color: red !important; */
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.grid-body {
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-areas:
+    ". game-name player-data"
+		"menu menu menu"
+		"footer footer footer";
+}
+
+main {
+	grid-area: menu;
+}
+
+.advert {
+	grid-area: footer;
+	align-items: flex-end;
+}
+
+.header {
+	text-align: center;
+	font-size: 52px;
+	grid-area: game-name;
+}
+
+.player-data {
+	grid-area: player-data;
+}
+
+.player-data__container {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+	grid-area: player-data;
+	padding: 10px;
+	/* padding-bottom: 20px; */
+	/* width: 100px; */
+	/* height: 166px; */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.player-name {
+	margin: 5px;
+	font-size: 40px;
+	/* grid-area: player-name; */
+	color: orange;
+}
+
+.player-avatar {
+	margin: 5px;
+	border-radius: 8px;
+	width: 80px;
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+	.rules {
+		display: block;
+		margin-top: 10px;
+		height: 350px;
+		overflow: scroll;
+	}
+
+	.scoreboard {
+		display: flex;
+		grid-area: score;
+	}
+
+	.flex-container__button {
+		height: 10vh !important;
+	}
+
+	.header {
+		font-size: 38px;
+	}
+
+	.player-name {
+		font-size: 20px;
+	}
+
+	.player-data__container {
+		/* height: 146px; */
+	}
+
+	.player-avatar {
+		margin: 5px;
+		border-radius: 8px;
+		width: 50px;
+	}
+
+}
+
+@media (max-height: 420px) and (orientation: landscape) {
+	.flex-container__button {
+		flex: 1 0 5vw;
+		font-size: 20px;
+		height: 20vh !important;
+		/* width: 10vw !important; */
+	}
+
+	.header {
+		font-size: 40px;
+	}
+
+	.player-name {
+		font-size: 20px;
+	}
+
+	.player-avatar {
+		margin: 5px;
+		border-radius: 8px;
+		width: 50px;
+	}
+
+	.rules {
+		height: 150px;
+		overflow: scroll;
+	}
+
+}

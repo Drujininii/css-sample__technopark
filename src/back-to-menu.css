@@ -4,7 +4,6 @@
     top: 10px;
     width: 100px;
     height: 50px;
-
     outline: none;
 	border: 5px solid #005ff9;
 	border-radius: 5px;
@@ -17,4 +16,4 @@
 
 .back-to-menu:hover {
     transform: scale(1.05);
-} 
+}

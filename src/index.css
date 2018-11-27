@@ -13,115 +13,18 @@ body {
 	align-items: center;
 }
 
-.flex-main {
+.application {
+	flex-direction: column !important;
+	justify-content: space-between;
+	height: 100vh;
+	width: 100vw;
+}
+
+.menu_flex {
 	justify-content: center;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-}
-
-
-.flex-container {
-	justify-content: center;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-}
-
-.scoreboard {
-	display: none;
-}
-
-@media (orientation: portrait) {
-	.grid-body {
-		grid-template-rows: 0.5fr 166px 5fr 1fr !important;
-		/* grid-template-columns: 1fr 400px 1fr !important; */
-		grid-template-areas:
-		". . score"
-		". game-name player-data"
-		"menu menu menu"
-		"footer footer footer" !important;
-	}
-
-	.flex-container {
-		width: 400px;
-	}
-	/* .flex-body {
-		align-items: baseline !important;
-	} */
-
-	.flex-container__button {
-		/* width: 70vw !important; */
-		flex: 1 0 180px !important;
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-
-}
-
-@media (orientation: landscape) {
-
-	.flex-main {
-		height: 40vh !important;
-	}
-	.flex-container {
-		height: inherit !important;
-		width: 95vw;
-	}
-
-	.player-data__container {
-		flex-direction: row !important;
-	}
-
-	.grid-body {
-		/* grid-template-rows: 1fr 2fr 0.5fr !important; */
-	}
-}
-
-.flex-container__button {
-	outline: none;
-	border: 5px solid #005ff9;
-	border-radius: 5px;
-	font-family: Helvetica;
-	width: 150px;
-	font-size: 30px;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	flex: 0 0 150px;
-	color: white;
-	background-color: #ff9d02;
-	height: 100px;
-	transition: transform 0.5s;
-}
-
-.rules {
-	display: block;
-	margin-top: 10px;
-	height: 400px;
-	overflow: scroll;
-}
-
-
-@media (max-width: 1000px) {
-	.flex-container__button {
-		width: 70vw !important;
-		flex: 1 0 180px;
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-}
-
-@media (hover: none) {
-	.flex-container__button{
-		/* transform:  perspective(1px) scale(1.5); */
-		/* color: red !important; */
-	}
-}
-
-.hidden {
-	display: none !important;
 }
 
 .grid-body {
@@ -131,13 +34,57 @@ body {
 	width: 100vw;
 	display: grid;
 	grid-template-areas:
-    ". game-name player-data"
-		"menu menu menu"
-		"footer footer footer";
+	". game-name player-data" 
+	"main main main"
+	"footer footer footer";
+}
+
+.scoreboard {
+	display: none;
+}
+
+.rules > div {
+    column-width: 400px;
+    column-gap: 20px;
+    padding: 10px;
+    margin: 0 0 0 0;
+}
+
+.rules > div > p {
+    margin: 0 0 0 0;
+}
+
+.menu__button {
+	outline: none;
+	font-family: Helvetica;
+	border: 5px solid #005ff9;
+	border-radius: 5px;
+	background-color: #ff9d02;
+	width: 150px;
+	font-size: 30px;
+	margin: 10px 20px;
+	flex: 0 0 150px;
+	color: white;
+	height: 100px;
+	transition: transform 0.5s;
+}
+
+.menu__button:hover {
+	transform: scale(1.05);
+}
+
+.rules {
+	display: block;
+	margin-top: 10px;
+	overflow: scroll;
+}
+
+.hidden {
+	display: none !important;
 }
 
 main {
-	grid-area: menu;
+	grid-area: main;
 }
 
 .advert {
@@ -149,6 +96,7 @@ main {
 	text-align: center;
 	font-size: 52px;
 	grid-area: game-name;
+	text-shadow: 0 2px 4px rgb(1, 91, 255), 0 6px 20px rgb(0, 0, 0);
 }
 
 .player-data {
@@ -163,16 +111,12 @@ main {
 	flex-direction: column;
 	grid-area: player-data;
 	padding: 10px;
-	/* padding-bottom: 20px; */
-	/* width: 100px; */
-	/* height: 166px; */
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 2px rgb(1, 91, 255), 0 6px 20px 0 rgb(0, 0, 0);
 }
 
 .player-name {
 	margin: 5px;
 	font-size: 40px;
-	/* grid-area: player-name; */
 	color: orange;
 }
 
@@ -182,9 +126,48 @@ main {
 	width: 80px;
 }
 
+/* 1 */
+
+@media (orientation: portrait) {
+	.grid-body {
+		grid-template-rows: 0.5fr 166px 5fr 1fr;
+		grid-template-areas:
+		". . score"
+		". game-name player-data"
+		"main main main"
+		"footer footer footer";
+	}
+
+	.menu_flex {
+		width: 400px;
+	}
+
+	.menu__button {
+		height: calc(60px + 2vh);
+		flex: 1 0 180px;
+
+	}
+}
+
+@media (orientation: landscape) {
+	.flex-body > main {
+		height: 40vh !important;
+	}
+
+	.menu_flex {
+		height: inherit !important;
+		width: 95vw;
+	}
+
+	.player-data__container {
+		flex-direction: row !important;
+	}
+}
+
+/* 2 */
+
 @media (max-width: 480px) and (orientation: portrait) {
 	.rules {
-		display: block;
 		margin-top: 10px;
 		height: 350px;
 		overflow: scroll;
@@ -195,20 +178,20 @@ main {
 		grid-area: score;
 	}
 
-	.flex-container__button {
-		height: 10vh !important;
+	.menu__button {
+		height: calc(60px + 2vh);
+	}
+
+	.menu_flex {
+		width: 350px;
 	}
 
 	.header {
-		font-size: 38px;
+		font-size: calc(15px + 7.8vw);
 	}
 
 	.player-name {
 		font-size: 20px;
-	}
-
-	.player-data__container {
-		/* height: 146px; */
 	}
 
 	.player-avatar {
@@ -216,15 +199,15 @@ main {
 		border-radius: 8px;
 		width: 50px;
 	}
-
 }
 
+/* 4 */
+
 @media (max-height: 420px) and (orientation: landscape) {
-	.flex-container__button {
+	.menu__button {
 		flex: 1 0 5vw;
 		font-size: 20px;
 		height: 20vh !important;
-		/* width: 10vw !important; */
 	}
 
 	.header {
@@ -242,8 +225,10 @@ main {
 	}
 
 	.rules {
-		height: 150px;
+		height: 170px;
 		overflow: scroll;
 	}
-
+	.grid-body {
+		grid-template-rows: repeat(2, 1fr) 0.3fr;
+	}
 }

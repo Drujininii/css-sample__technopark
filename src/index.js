@@ -1,10 +1,9 @@
 'use strict';
 import "./index.css";
-import "./rules.css";
 import "./back-to-menu.css";
 
 (function a(b, c) {
-    const rulesButton = document.getElementsByClassName('flex-container__button__rules')[0];
+    const rulesButton = document.getElementsByClassName('menu__button__rules')[0];
     rulesButton.addEventListener('click', (event) => {
         event.preventDefault();
         goToRules();

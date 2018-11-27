@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack-dev-server & webpack --mode development --watch --info-verbosity verbose",
-    "watch": "webpack --mode development --watch --info-verbosity verbose",
+    "start:dev": "webpack-dev-server & webpack -watch --info-verbosity verbose",
+    "watch": "webpack --watch --info-verbosity verbose",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

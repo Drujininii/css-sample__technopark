@@ -1,6 +1,9 @@
 var path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+const isTouchSample = process.argv.includes('--touch_sample');
 
 module.exports = {
     entry: './src/index.js',
@@ -11,9 +14,11 @@ module.exports = {
     watch: true,
     mode: 'development',
     devServer: {
+        openPage: isTouchSample ? 'touch_action.html' : 'index.html',
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000
+        port: 9000,
+        open: true
     },
     module: {
         rules: [
@@ -28,7 +33,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [ 
+    plugins: [
         new ExtractTextPlugin(
             {filename: 'index.css', disable: false, allChunks: true}
         ),
@@ -37,6 +42,12 @@ module.exports = {
             hash: true,
             template: './src/index.html',
             filename: 'index.html'
-        })
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: './src/touch_action.html',
+            filename: 'touch_action.html'
+        }),
     ]
 };

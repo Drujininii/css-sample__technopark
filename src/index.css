@@ -9,8 +9,9 @@ body {
 .flex-body {
 	justify-content: center;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	align-items: center;
+	min-height: min-content;
 }
 
 .application {
@@ -29,12 +30,12 @@ body {
 
 .grid-body {
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-rows: 1fr 2fr 0.5fr;
 	height: 100vh;
 	width: 100vw;
 	display: grid;
 	grid-template-areas:
-	". game-name player-data" 
+	". game-name player-data"
 	"main main main"
 	"footer footer footer";
 }
@@ -46,7 +47,8 @@ body {
 .rules > div {
     column-width: 400px;
     column-gap: 20px;
-    padding: 10px;
+	column-count: 3;
+	padding: 10px;
     margin: 0 0 0 0;
 }
 
@@ -74,9 +76,11 @@ body {
 }
 
 .rules {
+	max-width: 1400px;
 	display: block;
 	margin-top: 10px;
 	overflow: scroll;
+	max-height: 50vh;
 }
 
 .hidden {
@@ -88,8 +92,8 @@ main {
 }
 
 .advert {
+	font-size: 14px;
 	grid-area: footer;
-	align-items: flex-end;
 }
 
 .header {
@@ -116,119 +120,135 @@ main {
 
 .player-name {
 	margin: 5px;
-	font-size: 40px;
+	font-size: 20px;
 	color: orange;
 }
 
 .player-avatar {
 	margin: 5px;
 	border-radius: 8px;
-	width: 80px;
+	width: 60px;
 }
 
-/* 1 */
+/* -- 1 -- */
 
-@media (orientation: portrait) {
-	.grid-body {
-		grid-template-rows: 0.5fr 166px 5fr 1fr;
-		grid-template-areas:
-		". . score"
-		". game-name player-data"
-		"main main main"
-		"footer footer footer";
-	}
+/*@media (orientation: portrait) {*/
+/*	.grid-body {*/
+/*		grid-template-rows: 0.5fr 1fr 5fr 1fr;*/
+/*		grid-template-areas:*/
+/*		". . score"*/
+/*		". game-name player-data"*/
+/*		"main main main"*/
+/*		"footer footer footer";*/
+/*	}*/
 
-	.menu_flex {
-		width: 400px;
-	}
+/*	.menu_flex {*/
+/*		max-width: 400px;*/
+/*	}*/
 
-	.menu__button {
-		height: calc(60px + 2vh);
-		flex: 1 0 180px;
+/*	.header {*/
+/*		font-size: 44px;*/
+/*	}*/
 
-	}
-}
+/*	.menu__button {*/
+/*		height: calc(60px + 2vh);*/
+/*		flex: 1 0 180px;*/
+/*	}*/
+/*}*/
 
-@media (orientation: landscape) {
-	.flex-body > main {
-		height: 40vh !important;
-	}
+/*@media (orientation: landscape) {*/
+/*	.flex-body > main {*/
+/*		height: 40vh !important;*/
+/*	}*/
 
-	.menu_flex {
-		height: inherit !important;
-		width: 95vw;
-	}
+/*	.menu_flex {*/
+/*		height: inherit !important;*/
+/*		width: 95vw;*/
+/*	}*/
 
-	.player-data__container {
-		flex-direction: row !important;
-	}
-}
+/*	.player-data__container {*/
+/*		flex-direction: row !important;*/
+/*	}*/
+/*}*/
 
-/* 2 */
+/* -- 3 -- */
 
-@media (max-width: 480px) and (orientation: portrait) {
-	.rules {
-		margin-top: 10px;
-		height: 350px;
-		overflow: scroll;
-	}
+/*@media (max-width: 480px) and (orientation: portrait) {*/
+/*	.rules {*/
+/*		max-height: 60vh;*/
+/*		margin-top: 10px;*/
+/*		height: 60vh;*/
+/*		overflow: scroll;*/
+/*	}*/
 
-	.scoreboard {
-		display: flex;
-		grid-area: score;
-	}
+/*	.scoreboard {*/
+/*		display: flex;*/
+/*		grid-area: score;*/
+/*	}*/
 
-	.menu__button {
-		height: calc(60px + 2vh);
-	}
+/*	.menu__button {*/
+/*		height: calc(40px + 2vh);*/
+/*		max-width: 90vw;*/
+/*	}*/
 
-	.menu_flex {
-		width: 350px;
-	}
+/*	.menu_flex {*/
+/*		max-width: 350px;*/
+/*	}*/
 
-	.header {
-		font-size: calc(15px + 7.8vw);
-	}
+/*	.header {*/
+/*		!* css шлюзы *!*/
+/*		font-size: calc(10px + 7.2vw);*/
+/*	}*/
 
-	.player-name {
-		font-size: 20px;
-	}
+/*	.player-data__container {*/
+/*		padding: 4px;*/
+/*	}*/
 
-	.player-avatar {
-		margin: 5px;
-		border-radius: 8px;
-		width: 50px;
-	}
-}
+/*	.player-name {*/
+/*		margin: 2px;*/
+/*		font-size: 14px;*/
+/*	}*/
 
-/* 4 */
+/*	.player-avatar {*/
+/*		margin: 2px;*/
+/*		border-radius: 8px;*/
+/*		width: 30px;*/
+/*	}*/
+/*}*/
 
-@media (max-height: 420px) and (orientation: landscape) {
-	.menu__button {
-		flex: 1 0 5vw;
-		font-size: 20px;
-		height: 20vh !important;
-	}
+/* -- 4 -- */
 
-	.header {
-		font-size: 40px;
-	}
+/*@media (max-height: 420px) and (orientation: landscape) {*/
+/*	.grid-body {*/
+/*		grid-template-rows: 0.5fr 2fr 0.5fr;*/
+/*	}*/
 
-	.player-name {
-		font-size: 20px;
-	}
+/*	.menu__button {*/
+/*		flex: 1 0 5vw;*/
+/*		font-size: 20px;*/
+/*		height: 20vh !important;*/
+/*	}*/
 
-	.player-avatar {
-		margin: 5px;
-		border-radius: 8px;
-		width: 50px;
-	}
+/*	.header {*/
+/*		font-size: 24px;*/
+/*	}*/
 
-	.rules {
-		height: 170px;
-		overflow: scroll;
-	}
-	.grid-body {
-		grid-template-rows: repeat(2, 1fr) 0.3fr;
-	}
-}
+/*	.player-data__container {*/
+/*		padding: 5px;*/
+/*	}*/
+
+/*	.player-name {*/
+/*		font-size: 14px;*/
+/*	}*/
+
+/*	.player-avatar {*/
+/*		margin: 5px;*/
+/*		border-radius: 8px;*/
+/*		width: 30px;*/
+/*	}*/
+
+/*	.rules {*/
+/*		overflow: scroll;*/
+/*		height: 50vh;*/
+/*	}*/
+/*}*/

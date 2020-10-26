@@ -14,7 +14,7 @@ import "./back-to-menu.css";
         event.preventDefault();
         goToMenu(event);
     })
-})()
+})();
 
 function goToRules() {
     const menu = document.getElementsByClassName('menu')[0];
